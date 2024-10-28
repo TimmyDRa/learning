@@ -1,0 +1,37 @@
+describe('Laboratory', () => {
+    it('Confirm User can Sort Paients Based on Patients investigation category', () => {
+      cy.viewport(1366, 768)
+      cy.on('uncaught:exception', (err, runnable)=>{
+
+        return false
+      })
+ 
+ 
+ 
+ //Logs in with an authorized tenant
+ cy.visit('https://test.app.plateaumed-staging.com/');
+ cy.get('[data-testid="username"]', {timeout:60000}).type('jauffinecessu-1931@yopmail.com');
+ cy.get('[data-cy="password"]').type('Testing1@');
+ cy.get('[data-cy="login-button"]').click();
+
+  //Select Patient's Investigation Category
+
+  cy.get('[data-cy="sort"]', {timeout:60000}).click();
+  console.log("success")
+
+  //Displays Patients investigation category based on Chemsitry
+  cy.contains('Most recent investigations', {timeout:60000})
+  console.log("success");
+
+  //Select Patient's Investigation Category
+
+  cy.get('[data-cy="sort"]', {timeout:60000}).click();
+  console.log("success")
+
+  //Displays Patients investigation category based on Chemsitry
+  cy.contains('Earliest investigation', {timeout:60000}).click()
+  console.log("success");
+
+
+    })
+});

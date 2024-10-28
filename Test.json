@@ -1,0 +1,17 @@
+describe('Facebook Login', () => {
+    it('Logs into Facebook', () => {
+      // Visit Facebook login page
+      cy.visit('https://www.facebook.com');
+  
+      // Enter username and password
+      cy.get('#email').type('your_username');
+      cy.get('#pass').type('your_password');
+  
+      // Click on the login button
+      cy.get('#loginbutton').click();
+  
+      // Wait for the dashboard or any element after successful login
+      // For example, you can wait for the presence of the user profile element
+      cy.get('[data-testid=user_profile_link]').should('be.visible');
+    });
+  });
